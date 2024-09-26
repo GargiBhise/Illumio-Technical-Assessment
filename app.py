@@ -1,5 +1,6 @@
 import re
 
+
 with open("lookup_table", "r") as f:
     lookup_table = [line.strip() for line in f.readlines()]
 lookup_table_dct = {}
@@ -21,6 +22,7 @@ def extract_port_from_log(log: str) -> int:
         return -1
 
 
+tag_counts = {}
 for log in logs:
     port_number = extract_port_from_log(log)
     if port_number in lookup_table_dct:
@@ -29,3 +31,5 @@ for log in logs:
         tag = lookup_table_dct[port_number][protocol]
     else:
         protocol, tag = "Unknown", "Untagged"
+    tag_counts[tag] = tag_counts.get(tag, 0) + 1
+
