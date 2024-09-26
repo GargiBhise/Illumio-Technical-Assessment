@@ -1,47 +1,7 @@
-port_and_protocol = {
-    20: 'FTP (Data)',
-    21: 'FTP (Control)',
-    22: 'SSH/SFTP',
-    23: 'Telnet',
-    25: 'SMTP',
-    53: 'DNS',
-    67: 'DHCP (Server)',
-    68: 'DHCP (Client)',
-    69: 'TFTP',
-    80: 'HTTP',
-    110: 'POP3',
-    123: 'NTP',
-    143: 'IMAP',
-    161: 'SNMP (Queries)',
-    162: 'SNMP (Traps)',
-    194: 'IRC',
-    389: 'LDAP',
-    443: 'HTTPS',
-    465: 'SMTP (SSL/TLS)',
-    587: 'SMTP (TLS)',
-    636: 'LDAP (SSL)',
-    993: 'IMAP (SSL/TLS)',
-    995: 'POP3 (SSL/TLS)',
-    1433: 'Microsoft SQL Server',
-    3306: 'MySQL',
-    3389: 'RDP',
-    5060: 'SIP',
-    5061: 'SIP (TLS)',
-    5432: 'PostgreSQL',
-    5900: 'VNC',
-    6379: 'Redis',
-    6667: 'IRC',
-    6697: 'IRC (SSL)',
-    8080: 'HTTP Alternate',
-    8443: 'HTTPS Alternate',
-    9200: 'Elasticsearch HTTP',
-    9300: 'Elasticsearch Transport',
-    11211: 'Memcached',
-    25565: 'Minecraft',
-    27017: 'MongoDB'
-}
+with open("lookup_table", "r") as f:
+    lookup_table = [line.strip() for line in f.readlines()]
 
 with open("logs.log", "r") as f:
-    logs = f.readlines()
+    logs = [line.strip() for line in f.readlines()]
 
 
